@@ -16,4 +16,5 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_toroplus.mk \
+    $(LOCAL_DIR)/full_toroplus.mk \
     $(LOCAL_DIR)/omni_toroplus.mk
