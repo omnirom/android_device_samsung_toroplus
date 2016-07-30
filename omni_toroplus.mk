@@ -13,27 +13,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Release name
-PRODUCT_RELEASE_NAME := GN-CDMA
+# Exclude Live Wallpapers
+TARGET_EXCLUDE_LIVEWALLPAPERS := true
+
+# Use the AOSP browser
+TARGET_USES_AOSP_BROWSER := true
+
+# Bootanimation
+TARGET_BOOTANIMATION_SIZE := 720x407
 
 # Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+# Pull in CDMA-specific stuff such as APNs
+$(call inherit-product, vendor/omni/config/cdma.mk)
 
 # Inherit from our omni product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
-
-# Pull in GSM-specific stuff such as APNs
-$(call inherit-product, vendor/omni/config/cdma.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/samsung/toroplus/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := toroplus
 PRODUCT_NAME := omni_toroplus
+PRODUCT_DEVICE := toroplus
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Galaxy Nexus
-PRODUCT_MANUFACTURER := samsung
+PRODUCT_MANUFACTURER := Samsung
+PRODUCT_RESTRICT_VENDOR_FILES := false
 
 #Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
