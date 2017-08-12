@@ -1,6 +1,0 @@
-app/BIP.apk
-app/HiddenMenu.apk
-app/SDM.apk
-app/SecPhone.apk
-lib/lib_gsd4t.so
-vendor/lib/libsec-ril_lte.so
